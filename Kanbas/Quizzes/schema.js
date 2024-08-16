@@ -49,6 +49,7 @@ const quizzesSchema = new mongoose.Schema(
     shuffle_answers: { type: Boolean, default: true },
     time_limit: { type: Number, default: 20 },
     multiple_attempts: { type: Boolean, default: false },
+    // how_many_attempts needs to be worked on for if multiple attempts == true
     show_correct_answers: {
       type: String,
       enum: ["Immediately", "After Submission", "Never"],
