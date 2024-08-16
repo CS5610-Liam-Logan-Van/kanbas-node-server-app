@@ -4,7 +4,7 @@ export const createQuiz = (quiz) => {
   delete quiz._id;
   return model.create(quiz);
 };
-// export const findAllQuizzes = () => model.find(); // ended up not needing this one?
+export const findAllQuizzes = () => model.find(); // might not need?
 export const findQuizzesByCourse = (courseId) =>
   model.find({ course_id: courseId });
 export const findQuizById = (quizId) => model.findById(quizId);
