@@ -24,13 +24,13 @@ const questionSchema = new mongoose.Schema({
 
 const quizzesSchema = new mongoose.Schema(
     {
-        course_id: {type: String, required: true},
-        title: {type: String, required: true},
+        course_id: {type: String},
+        title: {type: String},
         description: String,
         published: {type: Boolean, default: false},
-        due_date: {type: Date, required: true},
-        available_date: {type: Date, required: true},
-        until_date: {type: Date, required: true},
+        due_date: {type: Date},
+        available_date: {type: Date},
+        until_date: {type: Date},
         quiz_type: {
             type: String,
             enum: [
