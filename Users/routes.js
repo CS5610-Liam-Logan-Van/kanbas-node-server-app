@@ -11,6 +11,7 @@ function UserRoutes(app) {
         res.json(status);
 
     };
+
     const findAllUsers = async (req, res) => {
         const {role, name} = req.query;
         if (role) {
@@ -34,19 +35,17 @@ function UserRoutes(app) {
         res.json(user);
 
     };
-    const updateUser = async (req, res) => {
-        const updateUser = async (req, res) => {
-            const {userId} = req.params;
-            const status = await dao.updateUser(userId, req.body);
-            res.json(status);
-        };
 
+    const updateUser = async (req, res) => {
+        const {userId} = req.params;
+        const status = await dao.updateUser(userId, req.body);
+        res.json(status);
     };
+
     const signup = async (req, res) => {
         const user = await dao.findUserByUsername(req.body.username);
         if (user) {
-            res.status(400).json(
-                {message: "Username already taken"});
+            res.status(400).json({message: "Username already taken"});
             return;
         }
         const currentUser = await dao.createUser(req.body);
@@ -78,7 +77,6 @@ function UserRoutes(app) {
         req.session.destroy();
         res.sendStatus(200);
     };
-
 
     app.post("/api/users", createUser);
     app.get("/api/users", findAllUsers);
